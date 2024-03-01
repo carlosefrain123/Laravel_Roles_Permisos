@@ -1,0 +1,4 @@
+// Se crea el modelo y migración Categoria
+php artisan make:model Categoria -m
+//Se crea la migración post_tag
+php artisan make:migration create_post_tag_table
