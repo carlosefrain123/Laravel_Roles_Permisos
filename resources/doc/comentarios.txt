@@ -9,3 +9,5 @@ php artisan make:seeder UserSeeder
 //
 Si ya terminamos refrescamos
 php artisan migrate:fresh --seed
+//Instalar Livewire
+composer require livewire/livewire
