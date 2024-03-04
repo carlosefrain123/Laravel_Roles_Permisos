@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Storage::deleteDirectory('posts');
         // Crear el directorio 'posts' si no existe
         $publicPostsDirectory = public_path('storage/posts');
         if (!file_exists($publicPostsDirectory)) {
