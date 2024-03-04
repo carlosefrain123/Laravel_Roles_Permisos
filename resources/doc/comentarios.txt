@@ -3,4 +3,9 @@ php artisan make:model Categoria -m
 //Se crea la migración post_tag
 php artisan make:migration create_post_tag_table
 //Agregamos el factory para datos falsos
-php artisan make:factory CategoriaFactory  
+php artisan make:factory CategoriaFactory
+//Agregamos el seeder
+php artisan make:seeder UserSeeder
+//
+Si ya terminamos refrescamos
+php artisan migrate:fresh --seed

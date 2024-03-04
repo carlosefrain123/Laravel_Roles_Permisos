@@ -3,7 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Categoria;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
+//Para crear ka carpeta Posts
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +17,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Crear el directorio 'posts' si no existe
+        $publicPostsDirectory = public_path('storage/posts');
+        if (!file_exists($publicPostsDirectory)) {
+            mkdir($publicPostsDirectory, 0755, true);
+        }
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Llamar a otras semillas
+        $this->call(UserSeeder::class);
+        Categoria::factory(4)->create();
+        Tag::factory(8)->create();
+        $this->call(PostSeeder::class);
     }
 }
