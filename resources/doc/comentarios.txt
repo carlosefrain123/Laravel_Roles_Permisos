@@ -11,3 +11,4 @@ Si ya terminamos refrescamos
 php artisan migrate:fresh --seed
 //Instalar Livewire
 composer require livewire/livewire
+php artisan make:livewire navigation
