@@ -55,7 +55,7 @@
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
                                         <img class="h-8 w-8 rounded-full"
-                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            src="{{auth()->user()->profile_photo_url}}"
                                             alt="">
                                     </button>
                                 </div>
@@ -64,8 +64,8 @@
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                     tabindex="-1">
                                     <!-- Active: "bg-gray-100", Not Active: "" -->
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
-                                        tabindex="-1" id="user-menu-item-0">Your Profile 1</a>
+                                    <a href="{{route('profile.update')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                        tabindex="-1" id="user-menu-item-0">Tu Perfil</a>
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                         tabindex="-1" id="user-menu-item-1">Settings</a>
                                     <form method="POST" action="{{ route('logout') }}">
@@ -153,8 +153,6 @@
                     <a href="#"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your
                         Profile 1</a>
-                    <a href="#"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
                     <a href="#"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign
                         out</a>
