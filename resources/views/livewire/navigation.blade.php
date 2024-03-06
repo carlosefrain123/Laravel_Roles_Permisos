@@ -19,16 +19,10 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                                aria-current="page">Dashboard</a>
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Reports</a>
+                            @foreach ($categorias as $categoria)
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ $categoria->name }}</a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -54,8 +48,7 @@
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="h-8 w-8 rounded-full"
-                                            src="{{auth()->user()->profile_photo_url}}"
+                                        <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}"
                                             alt="">
                                     </button>
                                 </div>
@@ -64,8 +57,8 @@
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                     tabindex="-1">
                                     <!-- Active: "bg-gray-100", Not Active: "" -->
-                                    <a href="{{route('profile.update')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
-                                        tabindex="-1" id="user-menu-item-0">Tu Perfil</a>
+                                    <a href="{{ route('profile.update') }}" class="block px-4 py-2 text-sm text-gray-700"
+                                        role="menuitem" tabindex="-1" id="user-menu-item-0">Tu Perfil</a>
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                         tabindex="-1" id="user-menu-item-1">Settings</a>
                                     <form method="POST" action="{{ route('logout') }}">
@@ -115,17 +108,14 @@
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="md:hidden" id="mobile-menu" x-show="open" x-on:click.away="open=false">
             <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                    aria-current="page">Dashboard 2</a>
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Reports</a>
+                {{-- <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                    aria-current="page">Dashboard 2</a> --}}
+                @foreach ($categorias as $categoria)
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{ $categoria->name }}</a>
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"></a>
+                @endforeach
             </div>
             <div class="border-t border-gray-700 pb-3 pt-4">
                 <div class="flex items-center px-5">
