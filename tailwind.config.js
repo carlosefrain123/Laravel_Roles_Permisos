@@ -18,4 +18,9 @@ export default {
     },
 
     plugins: [forms],
+
+    //TODO: Se deshabilita el container
+    /* corePlugins: {
+        preflight: false,
+      } */
 };
