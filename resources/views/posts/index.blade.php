@@ -1,7 +1,12 @@
 <x-app-layout>
     {{-- py: padding botton y padding top --}}
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        {{-- Hola papu, como estas --}}
+        {{-- Hola papu, como estas
+            General: grid-cols-1
+            Pantalla Mediana: 2 columnas md:grid-cols-2
+            Pantalla Grande: 3 columnas lg:grid-cols-3
+            md:col-span-2
+            --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($posts as $post)
             <article class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" style="background-image: url({{Storage::url($post->image->url)}})">
