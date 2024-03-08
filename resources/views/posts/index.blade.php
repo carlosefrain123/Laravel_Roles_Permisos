@@ -6,6 +6,7 @@
             Pantalla Mediana: 2 columnas md:grid-cols-2
             Pantalla Grande: 3 columnas lg:grid-cols-3
             md:col-span-2
+
             --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($posts as $post)
@@ -19,7 +20,7 @@
                         @endforeach
                     </div>
                     <h1 class="text-4xl text-white leading-8 font-bold">
-                        <a href="">
+                        <a href="{{route('posts.show',$post)}}">
                             {{$post->name}}
                         </a>
                     </h1>
