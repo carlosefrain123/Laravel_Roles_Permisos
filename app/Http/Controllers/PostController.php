@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -21,5 +22,8 @@ class PostController extends Controller
             ->take(4)
             ->get();
         return view('posts.show', compact('post', 'similares'));
+    }
+    public function categoria(Categoria $categoria){
+        return $categoria;
     }
 }
