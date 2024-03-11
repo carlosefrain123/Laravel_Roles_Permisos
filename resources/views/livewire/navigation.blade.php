@@ -13,7 +13,6 @@
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             @foreach ($categorias as $categoria)
                             <a href="{{ route('posts.categoria', $categoria->id) }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ $categoria->name }}</a>
-
                             @endforeach
                         </div>
                     </div>
@@ -103,10 +102,8 @@
                 {{-- <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
                     aria-current="page">Dashboard 2</a> --}}
                 @foreach ($categorias as $categoria)
-                    <a href="#"
+                    <a href="{{ route('posts.categoria', $categoria->id) }}"
                         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{ $categoria->name }}</a>
-                    <a href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"></a>
                 @endforeach
             </div>
             <div class="border-t border-gray-700 pb-3 pt-4">

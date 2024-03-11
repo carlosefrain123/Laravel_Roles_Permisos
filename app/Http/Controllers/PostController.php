@@ -24,6 +24,10 @@ class PostController extends Controller
         return view('posts.show', compact('post', 'similares'));
     }
     public function categoria(Categoria $categoria){
-        return $categoria;
+        $posts=Post::where('categoria_id',$categoria->id)
+            ->where('status', 2)
+            ->latest('id')
+            ->paginate(6);
+        return view('posts.categoria', compact('posts'));
     }
 }
