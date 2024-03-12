@@ -28,6 +28,6 @@ class PostController extends Controller
             ->where('status', 2)
             ->latest('id')
             ->paginate(6);
-        return view('posts.categoria', compact('posts'));
+        return view('posts.categoria', compact('posts','categoria'));
     }
 }
