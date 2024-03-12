@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,5 +30,8 @@ class PostController extends Controller
             ->latest('id')
             ->paginate(6);
         return view('posts.categoria', compact('posts','categoria'));
+    }
+    public function tag(Tag $tag){
+        return $tag;
     }
 }
