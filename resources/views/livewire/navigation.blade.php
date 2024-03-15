@@ -12,7 +12,8 @@
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             @foreach ($categorias as $categoria)
-                            <a href="{{ route('posts.categoria', $categoria->id) }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ $categoria->name }}</a>
+                                <a href="{{ route('posts.categoria', $categoria->id) }}"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ $categoria->name }}</a>
                             @endforeach
                         </div>
                     </div>
@@ -50,6 +51,8 @@
                                     <!-- Active: "bg-gray-100", Not Active: "" -->
                                     <a href="{{ route('profile.update') }}" class="block px-4 py-2 text-sm text-gray-700"
                                         role="menuitem" tabindex="-1" id="user-menu-item-0">Tu Perfil</a>
+                                    <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700"
+                                        role="menuitem" tabindex="-1" id="user-menu-item-0">Panel</a>
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                         tabindex="-1" id="user-menu-item-1">Settings</a>
                                     <form method="POST" action="{{ route('logout') }}">
