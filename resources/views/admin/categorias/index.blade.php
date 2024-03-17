@@ -7,13 +7,38 @@
 @stop
 
 @section('content')
-    <p>Lista de Categorias.</p>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
+    <div class="card">
+        <div class="card-header">
+            <a href="" class="btn btn-success"> Agregar Categoria</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($categorias as $categoria)
+                        <tr>
+                            <td>{{$categoria->id}}</td>
+                            <td>{{$categoria->name}}</td>
+                            <td width="10px">
+                                <a href="#" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                            <td width="10px">
+                                <form action="" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 @stop
