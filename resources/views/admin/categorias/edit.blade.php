@@ -3,33 +3,33 @@
 @section('title', 'Especialidades')
 
 @section('content_header')
-    <h2 class="text-center"><b>Agregar nueva categoria</b></h2>
+    <h2 class="text-center"><b>Editar categoria</b></h2>
 @stop
 
 @section('content')
     @if (session('info'))
-        <div class="alert alert-primary">
-            <strong>{{ session('info') }}</strong>
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
         </div>
     @endif
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.categorias.store']) !!}
+            {!! Form::model($categoria,['route' => ['admin.categorias.update',$categoria],'method'=>'put']) !!}
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre']) !!}
                 @error('name')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('slug', 'Slug') !!}
-                {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug', 'readonly']) !!}
+                {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug','readonly']) !!}
                 @error('slug')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
-            {!! Form::submit('Crear categoria', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}
         </div>
     </div>
 @stop

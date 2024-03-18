@@ -36,7 +36,7 @@ class CategoriaController extends Controller
             'slug'=>'required|unique:categorias',
         ]);
         $categoria=Categoria::create($request->all());
-        return redirect()->route('admin.categorias.index',$categoria);
+        return redirect()->route('admin.categorias.create',$categoria)->with('info','La categoria se guardó con éxito');
         /* return $request->all(); */
     }
 
@@ -51,24 +51,30 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Categoria $categoria)
     {
-        //
+        return view('admin.categorias.edit',compact('categoria'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Categoria $categoria)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'slug'=>'required|unique:categorias,slug,$categoria->id'
+        ]);
+        $categoria->update($request->all());
+        return redirect()->route('admin.categorias.edit',$categoria)->with('info','La categoria se actualizó con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Categoria $categoria)
     {
-        //
+        $categoria->delete();
+        return redirect()->route('admin.categorias.index')->with('info','La categoria se actualizó con éxito');
     }
 }
