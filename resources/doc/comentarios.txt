@@ -12,3 +12,5 @@ php artisan migrate:fresh --seed
 //Instalar Livewire
 composer require livewire/livewire
 php artisan make:livewire navigation
+//Se instala laravelcollective/html
+$ composer require laravelcollective/html
