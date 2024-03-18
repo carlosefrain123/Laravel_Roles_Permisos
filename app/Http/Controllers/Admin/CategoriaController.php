@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoriaRequest;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,9 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* $categoria = $request->except('_token');
+        Categoria::create($categoria);
+        return redirect()->route('admin.categorias.index')->with('success-create', 'Categoria agregado con éxito'); */
     }
 
     /**

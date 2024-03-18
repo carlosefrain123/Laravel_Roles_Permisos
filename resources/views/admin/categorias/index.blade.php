@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.categorias.create')}}" class="btn btn-success"> Agregar Categoria</a>
+            <a href="{{ route('admin.categorias.create') }}" class="btn btn-success"> Agregar Categoria</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">
@@ -23,8 +23,8 @@
                 <tbody>
                     @foreach ($categorias as $categoria)
                         <tr>
-                            <td>{{$categoria->id}}</td>
-                            <td>{{$categoria->name}}</td>
+                            <td>{{ $categoria->id }}</td>
+                            <td>{{ $categoria->name }}</td>
                             <td width="10px">
                                 <a href="#" class="btn btn-primary btn-sm">Editar</a>
                             </td>
