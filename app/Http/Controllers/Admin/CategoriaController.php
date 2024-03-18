@@ -31,9 +31,13 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        /* $categoria = $request->except('_token');
-        Categoria::create($categoria);
-        return redirect()->route('admin.categorias.index')->with('success-create', 'Categoria agregado con éxito'); */
+        $request->validate([
+            'name'=>'required',
+            'slug'=>'required|unique:categorias',
+        ]);
+        $categoria=Categoria::create($request->all());
+        return redirect()->route('admin.categorias.index',$categoria);
+        /* return $request->all(); */
     }
 
     /**
