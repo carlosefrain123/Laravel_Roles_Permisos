@@ -14,3 +14,5 @@ composer require livewire/livewire
 php artisan make:livewire navigation
 //Se instala laravelcollective/html
 $ composer require laravelcollective/html
+// Se agrega el controlador de Tag
+php artisan make:controller Admin/TagController -r

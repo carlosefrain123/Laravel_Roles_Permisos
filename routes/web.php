@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriaController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -19,4 +20,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('categorias', CategoriaController::class)->except([
     'show'
 ])->middleware('auth')->names('admin.categorias');
+Route::resource('tags', TagController::class)->except([
+    'show'
+])->middleware('auth')->names('admin.tags');
 require __DIR__.'/auth.php';
