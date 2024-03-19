@@ -26,7 +26,7 @@
                         <td>{{ $tag->id }}</td>
                         <td>{{ $tag->name }}</td>
                         <td width="10px">
-                            <a href="{{ route('admin.categorias.edit', $tag) }}"
+                            <a href="{{ route('admin.tags.edit', $tag) }}"
                                 class="btn btn-primary btn-sm">Editar</a>
                         </td>
                         <td width="10px">

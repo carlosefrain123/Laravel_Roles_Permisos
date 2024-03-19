@@ -61,9 +61,18 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Tag $tag)
     {
-        //
+        $colors=[
+            'red'=>'Color Rojo',
+            'yellow'=>'Color Amarillo',
+            'green'=>'Color Verde',
+            'blue'=>'Color Azul',
+            'indigo'=>'Color Indigo',
+            'purple'=>'Color Purpura',
+            'pink'=>'Color Rosa',
+        ];
+        return view('admin.tags.edit',compact('tag','colors'));
     }
 
     /**
