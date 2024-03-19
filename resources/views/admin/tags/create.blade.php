@@ -15,25 +15,9 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.tags.store']) !!}
-            <div class="form-group">
-                {!! Form::label('name', 'Nombre') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre']) !!}
-                @error('name')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                {!! Form::label('slug', 'Slug') !!}
-                {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug', 'readonly']) !!}
-                @error('slug')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                {!! Form::label('color', 'Color:') !!}
-                {!! Form::select('color', $colors, null, ['class'=>'form-control']) !!}
-            </div>
-            {!! Form::submit('Crear Tags', ['class' => 'btn btn-primary']) !!}
+            @include('admin.tags.partials.form')
+            {!! Form::submit('Crear Etiqueta', ['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @stop
@@ -49,4 +33,3 @@
         });
     </script>
 @endsection
-
