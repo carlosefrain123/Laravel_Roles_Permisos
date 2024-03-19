@@ -78,16 +78,23 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'slug'=>"required|unique:tags,slug,$tag->id",
+            'color'=>'required',
+        ]);
+        $tag->update($request->all());
+        return redirect()->route('admin.tags.edit',$tag)->with('info','La categoria se editó con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return redirect()->route('admin.tags.index')->with('info','La categoria se borró con éxito');
     }
 }

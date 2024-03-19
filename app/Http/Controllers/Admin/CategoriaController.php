@@ -63,7 +63,7 @@ class CategoriaController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'slug'=>'required|unique:categorias,slug,$categoria->id'
+            'slug'=>"required|unique:categorias,slug,$categoria->id"
         ]);
         $categoria->update($request->all());
         return redirect()->route('admin.categorias.edit',$categoria)->with('info','La categoria se actualizó con éxito');
@@ -75,6 +75,6 @@ class CategoriaController extends Controller
     public function destroy(Categoria $categoria)
     {
         $categoria->delete();
-        return redirect()->route('admin.categorias.index')->with('info','La categoria se actualizó con éxito');
+        return redirect()->route('admin.categorias.index')->with('info','La categoria se borró con éxito');
     }
 }

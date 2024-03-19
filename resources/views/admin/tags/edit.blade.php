@@ -14,9 +14,9 @@
     @endif
     <div class="card">
         <div class="card-body">
-            {!! Form::model($tag,['route' => ['admin.categorias.update',$tag],'method'=>'put']) !!}
+            {!! Form::model($tag,['route' => ['admin.tags.update',$tag],'method'=>'put']) !!}
                 @include('admin.tags.partials.form')
-                {!! Form::submit('Editar Etiqueta', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Editar Etiqueta', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
         </div>
     </div>
