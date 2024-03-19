@@ -13,7 +13,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags=Tag::all();
+        $tags = Tag::all();
         return view('admin.tags.index', compact('tags'));
     }
 
@@ -22,7 +22,17 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('admin.tags.create');
+        $colors=[
+            'red'=>'Color Rojo',
+            'yellow'=>'Color Amarillo',
+            'green'=>'Color Verde',
+            'blue'=>'Color Azul',
+            'indigo'=>'Color Indigo',
+            'purple'=>'Color Purpura',
+            'pink'=>'Color Rosa',
+        ];
+        /* $tags = Tag::all(); */ // Retrieve all tags from the database
+        return view('admin.tags.create', compact('colors'));
     }
 
     /**
@@ -30,8 +40,15 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'slug'=>'required|unique:tags',
+            'color'=>'required',
+        ]);
+        $tag=Tag::create($request->all());
+        return redirect()->route('admin.tags.create',$tag)->with('info','La categoria se guardó con éxito');
     }
+
 
     /**
      * Display the specified resource.

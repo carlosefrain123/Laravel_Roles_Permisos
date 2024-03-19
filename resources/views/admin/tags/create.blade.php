@@ -7,11 +7,11 @@
 @stop
 
 @section('content')
-    {{-- @if (session('info'))
+    @if (session('info'))
         <div class="alert alert-primary">
             <strong>{{ session('info') }}</strong>
         </div>
-    @endif --}}
+    @endif
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.tags.store']) !!}
@@ -29,7 +29,11 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            {!! Form::submit('Crear categoria', ['class' => 'btn btn-primary']) !!}
+            <div class="form-group">
+                {!! Form::label('color', 'Color:') !!}
+                {!! Form::select('color', $colors, null, ['class'=>'form-control']) !!}
+            </div>
+            {!! Form::submit('Crear Tags', ['class' => 'btn btn-primary']) !!}
         </div>
     </div>
 @stop
@@ -45,3 +49,4 @@
         });
     </script>
 @endsection
+
