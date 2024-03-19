@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <a href="{{-- {{ route('admin.categorias.create') }} --}}" class="btn btn-success"> Agregar Tags</a>
+        <a href="{{ route('admin.tags.create') }}" class="btn btn-success"> Agregar Tags</a>
     </div>
     <div class="card-body">
         <table class="table table-striped">
