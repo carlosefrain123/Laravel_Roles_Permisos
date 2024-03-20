@@ -327,11 +327,13 @@ return [
             'text' => 'Categorias',
             'route' => 'admin.categorias.index',
             'icon' => 'fas fa-fw fa-user',
+            'active' => ['categorias*']
         ],
         [
-            'text' => 'Tags',
+            'text' => 'Etiquetas',
             'route' => 'admin.tags.index',
             'icon' => 'fas fa-fw fa-list',
+            'active' => ['tags*']
         ],
         [
             'text' => 'change_password',
