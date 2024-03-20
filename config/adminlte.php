@@ -335,8 +335,15 @@ return [
             'icon' => 'fas fa-fw fa-list',
             'active' => ['tags*']
         ],
+        ['header' => 'OPCIONES DE BLOG'],
         [
-            'text' => 'change_password',
+            'text' => 'Lista de Pots',
+            'route' => 'admin.posts.index',
+            'icon' => 'fas fa-fw fa-list',
+            'active' => ['posts*']
+        ],
+        [
+            'text' => 'Crear nuevos Posts',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],

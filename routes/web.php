@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriaController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
@@ -23,4 +24,7 @@ Route::resource('categorias', CategoriaController::class)->except([
 Route::resource('tags', TagController::class)->except([
     'show'
 ])->middleware('auth')->names('admin.tags');
+Route::resource('posts', AdminPostController::class)->except([
+    'show'
+])->middleware('auth')->names('admin.posts');
 require __DIR__.'/auth.php';
