@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class PublicationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('admin.posts.index', compact('posts'));
+        $posts=Post::all();
+        return view('admin.publications.index', compact('posts'));
     }
 
     /**
@@ -22,7 +24,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categorias= Categoria::pluck('name','id');
+        $tags=Tag::all();
+        /* return $categorias; */
+        return view('admin.publications.create', compact('categorias','tags'));
     }
 
     /**

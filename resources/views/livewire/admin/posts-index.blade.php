@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <input wire:model.live="search" class="form-control" placeholder="Ingere el nombre del post">
+        <input wire:model.live="search" class="form-control" placeholder="Ingresa el nombre del post">
     </div>
     @if ($posts->count())
         <div class="card-body">
@@ -8,7 +8,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Nombre</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -18,7 +18,7 @@
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->name }}</td>
                             <td width="10px">
-                                <a href="{{-- {{ route('admin.tags.edit', $post) }} --}}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{{ route('admin.publications.edit', $post) }}" class="btn btn-primary btn-sm">Editar</a>
                             </td>
                             <td width="10px">
                                 <form action="{{-- {{ route('admin.tags.destroy', $post->id) }} --}}" method="POST">

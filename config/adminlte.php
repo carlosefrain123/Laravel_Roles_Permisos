@@ -338,15 +338,15 @@ return [
         ['header' => 'OPCIONES DE BLOG'],
         [
             'text' => 'Lista de Pots',
-            'route' => 'admin.posts.index',
+            'route' => 'admin.publications.index',
             'icon' => 'fas fa-fw fa-list',
             'active' => ['posts*']
         ],
-        [
+/*         [
             'text' => 'Crear nuevos Posts',
-            'url' => 'admin/settings',
+            'route' => 'admin.posts.create',
             'icon' => 'fas fa-fw fa-lock',
-        ],
+        ], */
         [
             'text' => 'multilevel',
             'icon' => 'fas fa-fw fa-share',
