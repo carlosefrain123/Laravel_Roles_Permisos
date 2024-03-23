@@ -38,6 +38,17 @@
                 @endforeach
             </div>
             <div class="form-group">
+                <p class="font-weight-bold">Estado</p>
+                <label>
+                    {!! Form::radio('status', 1, true) !!}
+                    Borrador
+                </label>
+                <lbel>
+                    {!! Form::radio('status', 2) !!}
+                    Publicado
+                </lbel>
+            </div>
+            <div class="form-group">
                 {!! Form::label('extract', 'Extracto:') !!}
                 {!! Form::textarea('extract', null, ['class'=>'form-control']) !!}
             </div>
@@ -51,6 +62,7 @@
 @endsection
 @section('js')
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
     <script>
         $(document).ready(function() {
             $("#name").stringToSlug({
@@ -59,5 +71,15 @@
                 space: '-'
             });
         });
+        ClassicEditor
+        .create( document.querySelector( '#extract' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error => {
+            console.error( error );
+        } );
     </script>
 @endsection
