@@ -9,7 +9,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::model(null, ['route' => ['admin.publications.store'], 'method' => 'post']) !!}
+            {!! Form::open(['route' => ['admin.publications.store'], 'autocomplete' => 'off']) !!}
+            {!! Form::hidden('user_id', auth()->user()->id) !!}
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre']) !!}
@@ -26,16 +27,23 @@
             </div>
             <div class="form-group">
                 {!! Form::label('categoria_id', 'Categoria') !!}
-                {!! Form::select('categoria_id',$categorias, null, ['class' => 'form-control']) !!}
+                {!! Form::select('categoria_id', $categorias, null, ['class' => 'form-control']) !!}
+                @error('categoria_id')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <p class="font-weight-bold">Etiquetas</p>
                 @foreach ($tags as $tag)
                     <label for="" class="mr-2">
                         {!! Form::checkbox('tags[]', $tag->id, null) !!}
-                        {{$tag->name}}
+                        {{ $tag->name }}
                     </label>
                 @endforeach
+                @error('tags')
+                    <br>
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <p class="font-weight-bold">Estado</p>
@@ -43,18 +51,28 @@
                     {!! Form::radio('status', 1, true) !!}
                     Borrador
                 </label>
-                <lbel>
+                <label>
                     {!! Form::radio('status', 2) !!}
                     Publicado
-                </lbel>
+                </label>
+                @error('status')
+                    <br>
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('extract', 'Extracto:') !!}
-                {!! Form::textarea('extract', null, ['class'=>'form-control']) !!}
+                {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
+                @error('extract')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('body', 'Cuerpo del post:') !!}
-                {!! Form::textarea('body', null, ['class'=>'form-control']) !!}
+                {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+                @error('body')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
         </div>
@@ -72,14 +90,14 @@
             });
         });
         ClassicEditor
-        .create( document.querySelector( '#extract' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+            .create(document.querySelector('#extract'))
+            .catch(error => {
+                console.error(error);
+            });
         ClassicEditor
-        .create( document.querySelector( '#body' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+            .create(document.querySelector('#body'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @endsection
