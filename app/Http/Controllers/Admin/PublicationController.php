@@ -36,7 +36,11 @@ class PublicationController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        return "Las validaciones pasaron con éxito";
+        $post=Post::create($request->all());
+        if ($request->tags) {
+            $post->tags()->attach($request->tags);
+        }
+        return redirect()->route('admin.publications.create',$post);
     }
 
     /**
